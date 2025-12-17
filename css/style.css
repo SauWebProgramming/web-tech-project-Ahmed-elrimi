@@ -141,6 +141,14 @@ main#app{
     gap: .25rem;
   }
 
+.hamburger.open span:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+.hamburger.open span:nth-child(2){ opacity: 0; }
+.hamburger.open span:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
+
+.hamburger span{
+  transition: transform .2s ease, opacity .2s ease;
+}
+
   .main-nav{
     position: absolute;
     top: 64px;
@@ -169,3 +177,7 @@ main#app{
     pointer-events: auto;
   }
 }
+
+
+
+
