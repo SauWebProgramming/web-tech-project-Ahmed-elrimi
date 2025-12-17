@@ -128,3 +128,44 @@ main#app{
 }
 
 .footer-note{ opacity: .9; }
+
+/* =========================
+   Responsive Navigation
+========================= */
+
+@media (max-width: 768px){
+
+  .hamburger{
+    display: inline-flex;
+    flex-direction: column;
+    gap: .25rem;
+  }
+
+  .main-nav{
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+
+    background: rgba(2, 6, 23, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+
+    flex-direction: column;
+    gap: .85rem;
+    padding: .9rem 1rem 1.1rem;
+
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+
+  .main-nav.open{
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
