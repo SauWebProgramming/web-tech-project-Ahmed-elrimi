@@ -144,8 +144,10 @@ main#app{
   .grid-2{ grid-template-columns: 1fr; }
 }
 
-@media (max-width: 768px){
-  .contact-layout{ grid-template-columns: 1fr; }
+@media (max-width: 900px){
+  .contact-layout{
+    grid-template-columns: 1fr;
+  }
 }
 @media (max-width: 768px){
 
@@ -154,6 +156,22 @@ main#app{
     flex-direction: column;
     gap: .25rem;
   }
+
+@media (max-width: 768px){
+  .hero{
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .hero-side{
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .kpi{
+    grid-template-columns: 1fr !important;
+  }
+}
 
 .hamburger.open span:nth-child(1){ transform: translateY(6px) rotate(45deg); }
 .hamburger.open span:nth-child(2){ opacity: 0; }
@@ -190,6 +208,11 @@ main#app{
     opacity: 1;
     pointer-events: auto;
   }
+}
+
+.card, .card *{
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /*-------Components----------*/
@@ -371,7 +394,6 @@ main#app{
 /* ============
    Contact
 =============== */
-
 .contact-layout{
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);

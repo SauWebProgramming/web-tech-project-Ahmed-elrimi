@@ -53,11 +53,18 @@ const routes = {
 };
 
 function initRouter() {
+  const savedRoute = localStorage.getItem("lastRoute");
+
+  if (!window.location.hash && savedRoute) {
+    window.location.hash = savedRoute;
+    return;
+  }
 
   if (!window.location.hash) {
     window.location.hash = "#home";
     return;
   }
+
   navigate();
 }
 
@@ -67,7 +74,10 @@ function navigate() {
 
   view();
   setActiveLink(hash);
+
+  localStorage.setItem("lastRoute", hash);
 }
+
 
 function setActiveLink(activeHash) {
   nav.querySelectorAll("a[data-link]").forEach((a) => {
