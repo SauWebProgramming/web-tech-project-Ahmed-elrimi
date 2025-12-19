@@ -199,14 +199,18 @@ function renderProjects() {
     <section class="section">
       <header class="section-header">
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">This is a projects section.</p>
+        <p class="section-subtitle">
+          A selection of projects showcasing my work and interests.
+        </p>
       </header>
-      <div class="card">
-        <p>Projects list will be loaded here.</p>
-      </div>
+
+      <div id="projects-container" class="card">Loading projects...</div>
     </section>
   `;
+
+  loadProjects();
 }
+
 
 function renderContact() {
   app.innerHTML = `
@@ -220,4 +224,81 @@ function renderContact() {
       </div>
     </section>
   `;
+}
+
+/* ---------------- Projects: async fetch ---------------- */
+
+async function loadProjects() {
+  const container = document.getElementById("projects-container");
+  if (!container) return;
+
+  try {
+    const res = await fetch("./data/projects.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Failed to fetch projects.json");
+
+    const projects = await res.json();
+
+    if (!Array.isArray(projects) || projects.length === 0) {
+      container.textContent = "No projects found.";
+      return;
+    }
+
+    container.classList.remove("card");
+    container.innerHTML = `
+      <div class="projects-grid">
+        ${projects.map((p) => projectCardHtml(p)).join("")}
+      </div>
+    `;
+  } catch (err) {
+    console.error(err);
+    container.textContent = "Error loading projects. Please try again later.";
+  }
+}
+
+function projectCardHtml(p) {
+  const title = escapeHtml(p?.title);
+  const year = escapeHtml(p?.year);
+  const desc = escapeHtml(p?.description);
+  const techs = Array.isArray(p?.technologies) ? p.technologies : [];
+  const githubUrl = safeUrl(p?.githubUrl);
+  const demoUrl = safeUrl(p?.demoUrl);
+
+  const linksHtml = (githubUrl || demoUrl)
+    ? `
+      <div class="project-links">
+        ${githubUrl ? `<a class="link-btn" href="${githubUrl}" target="_blank" rel="noopener noreferrer">GitHub</a>` : ""}
+        ${demoUrl ? `<a class="link-btn" href="${demoUrl}" target="_blank" rel="noopener noreferrer">Live Demo</a>` : ""}
+      </div>
+    `
+    : "";
+
+  return `
+    <article class="card">
+      <h3 class="project-title">${title}</h3>
+      <p class="project-meta">${year}</p>
+      <p class="mt-06">${desc}</p>
+
+      <div class="tags mt-06">
+        ${techs.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}
+      </div>
+
+      ${linksHtml}
+    </article>
+  `;
+}
+
+function safeUrl(value) {
+  const v = String(value ?? "").trim();
+  if (!v) return "";
+  if (v.startsWith("http://") || v.startsWith("https://")) return v;
+  return "";
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }

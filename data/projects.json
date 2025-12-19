@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Portfolio SPA (Vanilla JavaScript)",
+    "year": "2025",
+    "description": "A single-page portfolio built with hash-based routing, dynamic rendering, responsive layout, and a validated contact form. Focused on clean structure and reusable UI components.",
+    "technologies": ["HTML5", "CSS3", "JavaScript (ES6+)", "SPA", "Responsive Design"],
+    "githubUrl": "https://github.com/AhmedElrimi/portfolio-spa",
+    "demoUrl": "https://AhmedElrimi.github.io/portfolio-spa/"
+  },
+  {
+    "title": "Task Manager with LocalStorage",
+    "year": "2024",
+    "description": "A task management web app that supports creating, filtering, and persisting tasks using localStorage. Designed with a clean UI and mobile-first layout.",
+    "technologies": ["JavaScript", "LocalStorage", "CSS Grid", "DOM Manipulation"],
+    "githubUrl": "https://github.com/AhmedElrimi/task-manager",
+    "demoUrl": ""
+  },
+  {
+    "title": "Responsive E-Commerce UI (Product Listing)",
+    "year": "2024",
+    "description": "A responsive product listing interface with reusable product cards, category tags, and layout optimized for mobile, tablet, and desktop screens.",
+    "technologies": ["HTML5", "CSS3", "Flexbox", "Grid", "UI Components"],
+    "githubUrl": "https://github.com/AhmedElrimi/ecommerce-ui",
+    "demoUrl": ""
+  },
+  {
+    "title": "Weather Dashboard (API Integration)",
+    "year": "2023",
+    "description": "A lightweight dashboard that fetches real-time weather data from a public API and displays it with a clean, readable UI. Includes error handling and loading states.",
+    "technologies": ["JavaScript", "Fetch API", "Async/Await", "REST API"],
+    "githubUrl": "https://github.com/AhmedElrimi/weather-dashboard",
+    "demoUrl": ""
+  },
+  {
+    "title": "Modern Landing Page Template",
+    "year": "2023",
+    "description": "A modern landing page template with strong typography, consistent spacing, and responsive sections. Built to be easily customizable for startups or personal brands.",
+    "technologies": ["HTML5", "CSS3", "Responsive Design", "Typography"],
+    "githubUrl": "https://github.com/AhmedElrimi/landing-page-template",
+    "demoUrl": ""
+  },
+  {
+    "title": "UI Components Playground",
+    "year": "2022",
+    "description": "A small collection of reusable UI components (buttons, cards, tags, forms) focused on consistency and accessibility. Built as practice for building scalable UI systems.",
+    "technologies": ["CSS3", "Design System Basics", "Accessibility", "Reusable Components"],
+    "githubUrl": "https://github.com/AhmedElrimi/ui-components-playground",
+    "demoUrl": ""
+  },
+  {
+    "title": "Notes App (CRUD + Search)",
+    "year": "2024",
+    "description": "A simple notes application allowing users to create, edit, delete, and search notes on the client side. Designed with usability and clarity in mind.",
+    "technologies": ["JavaScript", "CRUD Operations", "LocalStorage", "UX Design"],
+    "githubUrl": "https://github.com/AhmedElrimi/notes-app",
+    "demoUrl": ""
+  },
+  {
+    "title": "Form Validation & UX Patterns Demo",
+    "year": "2023",
+    "description": "A demo project focused on building robust form validation, user feedback messages, and accessible input patterns without any backend.",
+    "technologies": ["HTML5 Validation", "JavaScript", "Accessibility", "Forms"],
+    "githubUrl": "https://github.com/AhmedElrimi/form-validation-demo",
+    "demoUrl": ""
+  }
+]

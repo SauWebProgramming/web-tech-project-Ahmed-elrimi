@@ -320,4 +320,48 @@ main#app{
   border: 1px solid rgba(148,163,184,.55);
 }
 
+/* =========================
+   Projects
+========================= */
+.projects-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.2rem;
+}
+
+.project-title{
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}
+
+.project-meta{
+  font-size: .85rem;
+  color: var(--muted);
+  margin-top: .25rem;
+}
+
+.project-links{
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-top: .9rem;
+}
+
+.link-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem .9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,.55);
+  color: var(--text);
+  background: rgba(2, 6, 23, 0.35);
+  transition: transform .12s ease, border-color .12s ease;
+}
+
+.link-btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(56, 189, 248, 0.8);
+}
 
