@@ -145,6 +145,9 @@ main#app{
 }
 
 @media (max-width: 768px){
+  .contact-layout{ grid-template-columns: 1fr; }
+}
+@media (max-width: 768px){
 
   .hamburger{
     display: inline-flex;
@@ -364,4 +367,70 @@ main#app{
   transform: translateY(-1px);
   border-color: rgba(56, 189, 248, 0.8);
 }
+
+/* ============
+   Contact
+=============== */
+
+.contact-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.form-group{ margin-bottom: 1rem; }
+
+label{
+  display:block;
+  font-size:.92rem;
+  font-weight: 700;
+  margin-bottom:.25rem;
+}
+
+input, textarea{
+  width: 100%;
+  padding: .68rem .75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(2, 6, 23, 0.78);
+  color: var(--text);
+  font: inherit;
+  transition: border-color .15s ease, outline-color .15s ease, box-shadow .15s ease;
+}
+
+input:focus, textarea:focus{
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+  border-color: rgba(56, 189, 248, 0.65);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.10);
+}
+
+textarea{ resize: vertical; min-height: 140px; }
+
+.helper{
+  font-size: .78rem;
+  color: var(--muted);
+  margin-top: .25rem;
+}
+
+.error{
+  font-size: .85rem;
+  color: #fb7185;
+  margin-top: .25rem;
+  min-height: 1.1em;
+}
+
+.alert{
+  margin-top: .9rem;
+  font-size: .95rem;
+  padding: .75rem .85rem;
+  border-radius: 12px;
+  border: 1px solid rgba(22,163,74,.6);
+  background: rgba(22,163,74,.12);
+  color: #bbf7d0;
+}
+
+.mb-10{ margin-bottom: 1rem; }
+
 

@@ -217,16 +217,74 @@ function renderContact() {
     <section class="section">
       <header class="section-header">
         <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">This is a contact section.</p>
+        <p class="section-subtitle">
+          Feel free to contact me for collaboration, questions, or opportunities. I will get back to you as soon as possible.
+        </p>
       </header>
-      <div class="card">
-        <p>Contact form will be here.</p>
+
+      <div class="contact-layout">
+        <form id="contact-form" class="card" novalidate>
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input id="name" name="name" type="text" required minlength="3" placeholder="Enter your full name" />
+            <p class="helper">At least 3 characters.</p>
+            <p class="error" data-error-for="name"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
+            <p class="helper">A valid email address is required.</p>
+            <p class="error" data-error-for="email"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="6" required minlength="10" maxlength="500"
+              placeholder="Write your message here..."></textarea>
+            <p class="helper">Between 10 and 500 characters.</p>
+            <p class="error" data-error-for="message"></p>
+          </div>
+
+          <button type="submit" class="button">Send Message</button>
+          <div id="form-status"></div>
+        </form>
+
+        <div>
+          <div class="card mb-10">
+            <h3>Contact Info</h3>
+            <ul class="list mt-06">
+              <li><strong>Email:</strong> ahmedalremi585379@gmail.com</li>
+              <li><strong>GitHub:</strong> github.com/Ahmed-Elrimi</li>
+              <li><strong>LinkedIn:</strong> linkedin.com/in/Ahmed-Elrimi</li>
+              <li><strong>Location:</strong> Turkey</li>
+            </ul>
+          </div>
+
+        <div class="card">
+  <h3>Availability</h3>
+  <p class="mt-06">
+    I am currently open to internships, junior front-end roles, and small freelance projects.
+    I enjoy collaborating on real-world applications and improving user-facing features.
+  </p>
+
+  <ul class="list mt-06">
+    <li>Open to front-end internships</li>
+    <li>Available for short-term freelance tasks</li>
+    <li>Interested in UI-focused team projects</li>
+    <li>Remote collaboration preferred</li>
+  </ul>
+</div>
+
+        </div>
       </div>
     </section>
   `;
+
+  setupContactValidation();
 }
 
-/* ---------------- Projects: async fetch ---------------- */
+/* ---- Projects: async fetch ---- */
 
 async function loadProjects() {
   const container = document.getElementById("projects-container");
@@ -301,4 +359,71 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+/* --- Contact: validation --- */
+
+function setupContactValidation() {
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  if (!form || !status) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    status.innerHTML = "";
+
+    const ok = validateForm(form);
+    if (!ok) return;
+
+    form.reset();
+    status.innerHTML = `
+      <div class="alert">
+        Your message has been sent successfully (simulated). Thank you!
+      </div>
+    `;
+  });
+}
+
+function validateForm(form) {
+  let valid = true;
+
+  const show = (name, msg) => {
+    const el = form.querySelector(`.error[data-error-for="${name}"]`);
+    if (el) el.textContent = msg;
+  };
+
+
+  ["name", "email", "message"].forEach((f) => show(f, ""));
+
+  const name = form.elements["name"];
+  const email = form.elements["email"];
+  const message = form.elements["message"];
+
+  if (!name.checkValidity()) {
+    valid = false;
+    if (name.validity.valueMissing) show("name", "Name is required.");
+    else if (name.validity.tooShort) show("name", "Name must be at least 3 characters.");
+  }
+
+  if (!email.checkValidity()) {
+    valid = false;
+    if (email.validity.valueMissing) show("email", "Email is required.");
+    else if (email.validity.typeMismatch) show("email", "Please enter a valid email address.");
+  }
+
+  if (!message.checkValidity()) {
+    valid = false;
+    if (message.validity.valueMissing) show("message", "Message is required.");
+    else if (message.validity.tooShort) show("message", "Message must be at least 10 characters.");
+    else if (message.validity.tooLong) show("message", "Message must be less than 500 characters.");
+  }
+
+
+  const text = message.value.trim().toLowerCase();
+  if (text.includes("http")) {
+    valid = false;
+    show("message", "Please do not include links in the message for this demo form.");
+  }
+
+  return valid;
 }
