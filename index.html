@@ -32,11 +32,72 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Ahmed. All rights reserved.</p>
-      <p class="footer-note">Built with HTML, CSS, and JavaScript</p>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <h3 class="footer-title">Ahmed Elrimi</h3>
+      <p class="footer-text">
+        Front-End Developer focused on clean UI, responsive design, and maintainable code.
+      </p>
     </div>
-  </footer>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <h4 class="footer-heading">Quick Links</h4>
+      <a href="#home" data-link>Home</a>
+      <a href="#about" data-link>About</a>
+      <a href="#projects" data-link>Projects</a>
+      <a href="#contact" data-link>Contact</a>
+    </nav>
+
+    <div class="footer-social">
+      <h4 class="footer-heading">Connect</h4>
+
+      <div class="social-row">
+        <a class="social-link" href="mailto:ahmedalremi585379@gmail.com" aria-label="Email">
+          <span class="icon" aria-hidden="true">
+            <!-- Mail -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+              <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
+              <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </span>
+          <span>Email</span>
+        </a>
+
+        <a class="social-link" href="https://github.com/Ahmed-Elrimi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <span class="icon" aria-hidden="true">
+            <!-- GitHub -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+              <path d="M12 2C6.477 2 2 6.58 2 12.234c0 4.52 2.865 8.353 6.839 9.706.5.096.682-.22.682-.49 0-.24-.008-.873-.013-1.713-2.782.618-3.369-1.376-3.369-1.376-.454-1.177-1.109-1.49-1.109-1.49-.907-.64.069-.627.069-.627 1.003.073 1.53 1.053 1.53 1.053.892 1.56 2.341 1.11 2.91.848.091-.664.35-1.11.636-1.365-2.22-.262-4.555-1.136-4.555-5.055 0-1.117.39-2.03 1.03-2.746-.103-.262-.446-1.317.098-2.746 0 0 .84-.275 2.75 1.05A9.35 9.35 0 0 1 12 6.8c.85.004 1.705.12 2.504.35 1.909-1.325 2.748-1.05 2.748-1.05.545 1.429.202 2.484.1 2.746.64.716 1.028 1.63 1.028 2.746 0 3.93-2.339 4.79-4.566 5.047.359.316.678.94.678 1.894 0 1.366-.012 2.466-.012 2.802 0 .272.18.59.688.49C19.138 20.584 22 16.75 22 12.234 22 6.58 17.523 2 12 2Z" stroke="currentColor" stroke-width="1.6"/>
+            </svg>
+          </span>
+          <span>GitHub</span>
+        </a>
+
+        <a class="social-link" href="https://www.linkedin.com/in/Ahmed-Elrimi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <span class="icon" aria-hidden="true">
+            <!-- LinkedIn -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+              <path d="M6.94 6.5A1.94 1.94 0 1 1 3.06 6.5a1.94 1.94 0 0 1 3.88 0Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 10h2.5v10H4V10Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M10 10h2.4v1.4h.03c.34-.66 1.18-1.36 2.42-1.36 2.59 0 3.07 1.77 3.07 4.08V20H15.4v-4.9c0-1.17-.02-2.67-1.6-2.67-1.6 0-1.85 1.3-1.85 2.58V20H10V10Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </span>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+
+      <p class="footer-mini">
+        Prefer email for the fastest response.
+      </p>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© <span id="year"></span> Ahmed Elrimi. All rights reserved.</p>
+    <p>Built with HTML, CSS, and JavaScript</p>
+  </div>
+</footer>
+
 
   <script src="js/app.js" type="module"></script>
 </body>
